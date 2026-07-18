@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,36 +51,36 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen transition-all duration-300 font-sans custom-scrollbar overflow-x-hidden">
+<body class="bg-[#FAF7F2] dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-all duration-300 font-sans custom-scrollbar overflow-x-hidden">
 
     <!-- NAVIGATION BAR -->
-    <header class="no-print border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50 transition-colors duration-300">
+    <header class="no-print border-b border-[#E5DFD5] dark:border-slate-800/80 bg-[#FAF7F2]/80 dark:bg-slate-950/80 backdrop-blur sticky top-0 z-50 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-0 sm:h-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div class="flex items-start gap-3 w-full sm:w-auto">
-                <div class="h-10 w-10 shrink-0 rounded-lg bg-purple-500 flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-purple-500/20" id="header-logo-container">
+                <div class="h-10 w-10 shrink-0 rounded-lg theme-bg-dynamic flex items-center justify-center text-white dark:text-slate-950 font-bold shadow-lg shadow-purple-500/20" id="header-logo-container">
                     <i class="fa-solid fa-chart-line text-sm"></i>
                 </div>
                 <div class="space-y-0.5 min-w-0">
-                    <h1 class="text-sm font-bold tracking-tight text-white flex flex-wrap items-center gap-1.5 leading-tight">
+                    <h1 class="text-sm font-bold tracking-tight text-slate-900 dark:text-white flex flex-wrap items-center gap-1.5 leading-tight">
                         HEALTH TECHNOLOGY ASSESSMENT 
-                        <span class="text-[10px] bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded border border-purple-500/20 font-mono inline-block mt-0.5 sm:mt-0 whitespace-normal text-left break-words" id="header-tag">
+                        <span class="text-[10px] theme-header-tag-bg theme-txt-dynamic px-2 py-0.5 rounded border theme-header-tag-border font-mono inline-block mt-0.5 sm:mt-0 whitespace-normal text-left break-words" id="header-tag">
                             CASE STUDY by Dr. Ratnapriya Thakur (BDS, FAGE)
                         </span>
                     </h1>
-                    <p class="text-xs text-slate-400"> Clinical Efficacy vs. Macroeconomic System Access </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400"> Clinical Efficacy vs. Macroeconomic System Access </p>
                 </div>
             </div>
             
-            <div class="flex items-center justify-between w-full sm:w-auto gap-4 pt-2 sm:pt-0 border-t border-slate-800/60 sm:border-t-0">
+            <div class="flex items-center justify-between w-full sm:w-auto gap-4 pt-2 sm:pt-0 border-t border-[#E5DFD5] dark:border-slate-800/60 sm:border-t-0">
                 <!-- Theme Selectors -->
-                <div class="flex bg-slate-900 border border-slate-800 rounded-lg p-1 text-[11px] items-center">
-                    <button onclick="setTheme('purple')" class="theme-btn px-2 py-1 rounded bg-purple-500 text-slate-950 font-semibold transition-all" id="btn-theme-purple">Amethyst</button>
-                    <button onclick="setTheme('indigo')" class="theme-btn px-2 py-1 rounded text-slate-400 hover:text-white transition-all" id="btn-theme-indigo">Indigo</button>
-                    <button onclick="setTheme('emerald')" class="theme-btn px-2 py-1 rounded text-slate-400 hover:text-white transition-all" id="btn-theme-emerald">Emerald</button>
+                <div class="flex bg-[#EFEAE0] dark:bg-slate-900 border border-[#DCD5C9] dark:border-slate-800 rounded-lg p-1 text-[11px] items-center">
+                    <button id="btn-theme-purple" onclick="setTheme('purple')" class="theme-btn px-2 py-1 rounded bg-purple-600 dark:bg-purple-500 text-white dark:text-slate-950 font-semibold transition-all">Amethyst</button>
+                    <button id="btn-theme-indigo" onclick="setTheme('indigo')" class="theme-btn px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Indigo</button>
+                    <button id="btn-theme-emerald" onclick="setTheme('emerald')" class="theme-btn px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Emerald</button>
                 </div>
 
                 <!-- Light/Dark Toggle -->
-                <button onclick="toggleLightMode()" class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all text-slate-400 hover:text-white shrink-0" title="Toggle Clinical Light Mode">
+                <button onclick="toggleLightMode()" class="p-2 rounded-lg bg-[#EFEAE0] dark:bg-slate-900 hover:bg-[#FAF7F2] dark:hover:bg-slate-800 border border-[#DCD5C9] dark:border-slate-800 transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white shrink-0" title="Toggle Clinical Light Mode">
                     <i id="theme-toggle-icon" class="fa-solid fa-moon"></i>
                 </button>
             </div>
@@ -90,45 +90,44 @@
     <!-- MAIN INTERACTIVE CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col gap-6 sm:gap-8">
         
-        <!-- Two Column Interactive Grid (Stretched on desktop to end bottom sections in perfect alignment) -->
+        <!-- Two Column Interactive Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch w-full">
             
             <!-- LEFT: SLIDE PRESENTATION & SCIENTIFIC LITERATURE -->
-            <section class="lg:col-span-7 flex flex-col justify-between lg:h-full w-full overflow-hidden">
+            <section class="lg:col-span-7 flex flex-col justify-start gap-5 lg:h-full w-full overflow-hidden" id="left-column-container">
                 
                 <div class="flex flex-col gap-5">
                     <!-- Slide Deck Frame -->
-                    <div class="relative w-full min-h-[420px] sm:min-h-[460px] md:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800/80 shadow-2xl flex flex-col justify-between p-5 sm:p-10 select-none group" id="slide-container">
+                    <div class="relative w-full min-h-[420px] sm:min-h-[460px] md:aspect-[4/3] rounded-2xl overflow-hidden bg-[#F3EFE7] dark:bg-slate-900 border border-[#E5DFD5] dark:border-slate-800/80 shadow-2xl flex flex-col justify-between p-5 sm:p-10 select-none group" id="slide-container">
                         
                         <!-- Background decorative elements based on active theme -->
-                        <div class="absolute inset-0 pointer-events-none opacity-20 transition-all duration-500" id="slide-bg">
+                        <div class="absolute inset-0 pointer-events-none opacity-10 dark:opacity-20 transition-all duration-500" id="slide-bg">
                             <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-purple-500 blur-3xl filter -translate-y-12 translate-x-12"></div>
-                            <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-slate-800 blur-3xl filter translate-y-12 -translate-x-12"></div>
+                            <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-slate-300 dark:bg-slate-800 blur-3xl filter translate-y-12 -translate-x-12"></div>
                         </div>
 
                         <!-- TOP DECK HUD -->
-                        <div class="relative z-10 flex items-center justify-between border-b border-slate-800/50 pb-3 text-[10px] sm:text-xs font-semibold tracking-widest text-slate-400 uppercase">
+                        <div class="relative z-10 flex items-center justify-between border-b border-[#E5DFD5] dark:border-slate-800/50 pb-3 text-[10px] sm:text-xs font-semibold tracking-widest text-slate-500 dark:text-slate-400 uppercase">
                             <span class="flex items-center gap-2">
-                                <span class="h-2 w-2 rounded-full bg-purple-400 animate-pulse" id="hud-dot"></span>
+                                <span class="h-2 w-2 rounded-full theme-bg-dynamic animate-pulse" id="hud-dot"></span>
                                 NICE Technology Appraisal: TA1026
                             </span>
                             <span id="slide-index-indicator">01 / 05</span>
                         </div>
 
                         <!-- SLIDE MAIN CONTENT -->
-                        <!-- Mobile spacing optimization: uses justify-start on mobile and md:justify-center on desktop -->
                         <div class="relative z-10 my-auto flex flex-col justify-start md:justify-center py-2 sm:py-6 overflow-y-auto max-h-[70%] md:max-h-[80%] custom-scrollbar slide-transition opacity-100 transform translate-x-0 text-left" id="slide-content">
                             <!-- Loaded dynamically via JavaScript -->
                         </div>
 
                         <!-- BOTTOM DECK HUD & CONTROLS -->
-                        <div class="relative z-10 flex items-center justify-end border-t border-slate-800/50 pt-3 text-xs">
+                        <div class="relative z-10 flex items-center justify-end border-t border-[#E5DFD5] dark:border-slate-800/50 pt-3 text-xs">
                             <!-- Slide Navigation Controls -->
                             <div class="flex items-center gap-3 no-print">
-                                <button onclick="prevSlide()" class="h-10 w-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all active:scale-95" title="Previous Slide">
+                                <button onclick="prevSlide()" class="h-10 w-10 rounded-full border border-[#E5DFD5] dark:border-slate-800 bg-[#FAF7F2] dark:bg-slate-900 hover:bg-[#EFEAE0] dark:hover:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all active:scale-95" title="Previous Slide">
                                     <i class="fa-solid fa-chevron-left text-sm"></i>
                                 </button>
-                                <button onclick="nextSlide()" class="h-10 w-10 rounded-full border border-slate-800 bg-purple-500 hover:bg-purple-400 flex items-center justify-center text-slate-950 font-bold transition-all active:scale-95" title="Next Slide" id="next-btn-main">
+                                <button onclick="nextSlide()" class="h-10 w-10 rounded-full border border-[#E5DFD5] dark:border-slate-800 theme-bg-dynamic flex items-center justify-center text-white dark:text-slate-950 font-bold transition-all active:scale-95" title="Next Slide" id="next-btn-main">
                                     <i class="fa-solid fa-chevron-right text-sm"></i>
                                 </button>
                             </div>
@@ -148,61 +147,61 @@
                     </div>
                 </div>
 
-                <!-- EXPANDABLE LITERATURE REFERENCES DRAWER (Aligned perfectly to bottom of Left Column) -->
-                <div class="no-print rounded-2xl border border-slate-800/80 bg-slate-900/20 p-4 sm:p-5 backdrop-blur mt-5 lg:mt-0">
-                    <button onclick="toggleReferences()" class="w-full flex items-center justify-between text-xs font-bold tracking-wider text-slate-400 uppercase">
+                <!-- EXPANDABLE LITERATURE REFERENCES DRAWER -->
+                <div class="no-print rounded-2xl border border-[#E5DFD5] dark:border-slate-800/80 bg-[#EFEAE0]/40 dark:bg-slate-900/20 p-4 sm:p-5 backdrop-blur mt-5 lg:mt-0 transition-all duration-300">
+                    <button onclick="toggleReferences()" class="w-full flex items-center justify-between text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">
                         <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-book-bookmark text-purple-400" id="references-icon"></i> Scientific Literature & Evidence Base
+                            <i class="fa-solid fa-book-bookmark theme-txt-dynamic" id="references-icon"></i> Scientific Literature & Evidence Base
                         </span>
                         <i class="fa-solid fa-chevron-down transition-transform duration-300" id="references-arrow"></i>
                     </button>
                     <div class="hidden mt-4 space-y-3 transition-all duration-300" id="references-content">
-                        <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
+                        <div class="p-3.5 bg-[#FAF7F2] dark:bg-slate-900/80 border border-[#E5DFD5] dark:border-slate-800 rounded-xl space-y-2">
                             <div class="flex justify-between items-start gap-2">
-                                <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono">SURMOUNT-1 (Pivotal Trial)</span>
+                                <span class="text-[9px] font-bold px-2 py-0.5 rounded theme-header-tag-bg theme-txt-dynamic theme-header-tag-border border font-mono">SURMOUNT-1 (Pivotal Trial)</span>
                                 <span class="text-[9px] text-slate-500 font-mono shrink-0">PMID: 35658024</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed font-serif">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/35658024/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors group">
+                            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/35658024/" target="_blank" rel="noopener noreferrer" class="theme-txt-dynamic hover:underline transition-colors group">
                                     Jastreboff AM, Aronne LJ, Ahmad NN, et al. <strong>Tirzepatide Once Weekly for the Treatment of Obesity</strong>. <em>N Engl J Med</em>. 2022;387(3):205-217. doi:10.1056/NEJMoa2206038
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 opacity-60 group-hover:opacity-100 transition-opacity"></i>
                                 </a>
                             </p>
                         </div>
 
-                        <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
+                        <div class="p-3.5 bg-[#FAF7F2] dark:bg-slate-900/80 border border-[#E5DFD5] dark:border-slate-800 rounded-xl space-y-2">
                             <div class="flex justify-between items-start gap-2">
-                                <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono">NICE GUIDANCE (TA1026)</span>
+                                <span class="text-[9px] font-bold px-2 py-0.5 rounded theme-header-tag-bg theme-txt-dynamic theme-header-tag-border border font-mono">NICE GUIDANCE (TA1026)</span>
                                 <span class="text-[9px] text-slate-500 font-mono shrink-0">TA1026</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed font-serif">
-                                <a href="https://www.ncbi.nlm.nih.gov/books/NBK611612/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors group">
+                            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
+                                <a href="https://www.ncbi.nlm.nih.gov/books/NBK611612/" target="_blank" rel="noopener noreferrer" class="theme-txt-dynamic hover:underline transition-colors group">
                                     National Institute for Health and Care Excellence (NICE). <strong>Tirzepatide for managing overweight and obesity</strong>. Technology Appraisal Guidance [TA1026]. Published June 2024.
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 opacity-60 group-hover:opacity-100 transition-opacity"></i>
                                 </a>
                             </p>
                         </div>
 
-                        <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
+                        <div class="p-3.5 bg-[#FAF7F2] dark:bg-slate-900/80 border border-[#E5DFD5] dark:border-slate-800 rounded-xl space-y-2">
                             <div class="flex justify-between items-start gap-2">
-                                <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono">SURMOUNT-2 (Co-morbid T2D)</span>
+                                <span class="text-[9px] font-bold px-2 py-0.5 rounded theme-header-tag-bg theme-txt-dynamic theme-header-tag-border border font-mono">SURMOUNT-2 (Co-morbid T2D)</span>
                                 <span class="text-[9px] text-slate-500 font-mono shrink-0">PMID: 37385275</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed font-serif">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/37385275/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors group">
+                            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/37385275/" target="_blank" rel="noopener noreferrer" class="theme-txt-dynamic hover:underline transition-colors group">
                                     Garvey WT, Frias JP, Jastreboff AM, et al. <strong>Tirzepatide once weekly for obesity in people with type 2 diabetes (SURMOUNT-2)</strong>. <em>The Lancet</em>. 2023;402(10402):613-626.
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 opacity-60 group-hover:opacity-100 transition-opacity"></i>
                                 </a>
                             </p>
                         </div>
 
-                        <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2">
+                        <div class="p-3.5 bg-[#FAF7F2] dark:bg-slate-900/80 border border-[#E5DFD5] dark:border-slate-800 rounded-xl space-y-2">
                             <div class="flex justify-between items-start gap-2">
-                                <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono">HTA Economics & Burden</span>
+                                <span class="text-[9px] font-bold px-2 py-0.5 rounded theme-header-tag-bg theme-txt-dynamic theme-header-tag-border border font-mono">HTA Economics & Burden</span>
                                 <span class="text-[9px] text-slate-500 font-mono shrink-0">NHS Digital</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed font-serif">
-                                <a href="https://digital.nhs.uk/data-and-information/publications/statistical/statistics-on-obesity-physical-activity-and-diet" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors group">
+                            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
+                                <a href="https://digital.nhs.uk/data-and-information/publications/statistical/statistics-on-obesity-physical-activity-and-diet" target="_blank" rel="noopener noreferrer" class="theme-txt-dynamic hover:underline transition-colors group">
                                     UK Department of Health and Social Care. <strong>Tackling Obesity: Government Strategy & Resource Economics</strong>. Public Health England (PHE) cost data on diabetes & cardiovascular comorbidities.
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 opacity-60 group-hover:opacity-100 transition-opacity"></i>
                                 </a>
@@ -218,17 +217,17 @@
                 
                 <div class="flex flex-col gap-5">
                     <!-- HTA Sandbox Card -->
-                    <div class="rounded-2xl border border-purple-500/20 bg-purple-950/5 p-4 sm:p-6 backdrop-blur shadow-xl relative overflow-hidden" id="sandbox-card">
+                    <div class="rounded-2xl border theme-card-border-dynamic theme-card-bg-dynamic p-4 sm:p-6 backdrop-blur shadow-xl relative overflow-hidden" id="sandbox-card">
                         
                         <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 blur-2xl pointer-events-none rounded-full"></div>
                         
-                        <div class="flex items-center gap-3 mb-4 border-b border-slate-800/80 pb-4">
-                            <div class="h-10 w-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0" id="sandbox-logo">
+                        <div class="flex items-center gap-3 mb-4 border-b border-[#E5DFD5] dark:border-slate-800/80 pb-4">
+                            <div class="h-10 w-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center theme-txt-dynamic shrink-0" id="sandbox-logo">
                                 <i class="fa-solid fa-calculator text-base"></i>
                             </div>
                             <div>
-                                <h2 class="text-xs sm:text-sm font-bold tracking-tight text-white uppercase">HTA Budget Impact Simulator</h2>
-                                <p class="text-[10px] sm:text-xs text-slate-400 font-medium">Model macroeconomic access scenarios</p>
+                                <h2 class="text-xs sm:text-sm font-bold tracking-tight text-slate-900 dark:text-white uppercase">HTA Budget Impact Simulator</h2>
+                                <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Model macroeconomic access scenarios</p>
                             </div>
                         </div>
 
@@ -237,8 +236,8 @@
                             
                             <!-- Cohort Selection Preset -->
                             <div>
-                                <label class="block text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Select Eligibility Criteria Preset</label>
-                                <select id="sandbox-cohort" onchange="runSimulation()" class="w-full bg-slate-900 border border-slate-800 text-slate-200 rounded-lg px-3 py-2.5 text-xs focus:ring-1 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all">
+                                <label class="block text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Select Eligibility Criteria Preset</label>
+                                <select id="sandbox-cohort" onchange="runSimulation()" class="w-full bg-[#FAF7F2] dark:bg-slate-900 border border-[#E5DFD5] dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-lg px-3 py-2.5 text-xs focus:ring-1 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all">
                                     <option value="broad" selected>Standard Marketing Authorisation (BMI ≥30 + 1 comorbidity)</option>
                                     <option value="nice">NICE Restricted Guidance (BMI ≥35 + 1 comorbidity)</option>
                                     <option value="nhse_y1">NHS England Year 1 Phase (BMI ≥40 + 4 comorbidities)</option>
@@ -248,24 +247,24 @@
                             <!-- Variable sliders -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4">
                                 <div class="space-y-1">
-                                    <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                                    <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                         Annual Drug Cost 
-                                        <span class="text-purple-400 font-mono font-bold" id="cost-val">£1,200</span>
+                                        <span class="theme-txt-dynamic font-mono font-bold" id="cost-val">£1,200</span>
                                     </label>
-                                    <input type="range" id="sandbox-cost" min="500" max="2500" step="50" value="1200" oninput="updateCostVal()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500 py-1">
-                                    <div class="flex justify-between text-[9px] text-slate-600 font-mono">
+                                    <input type="range" id="sandbox-cost" min="500" max="2500" step="50" value="1200" oninput="updateCostVal()" class="theme-accent-dynamic w-full h-2 bg-[#FAF7F2]/40 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer py-1">
+                                    <div class="flex justify-between text-[9px] text-slate-400 dark:text-slate-600 font-mono">
                                         <span>£500</span>
                                         <span>£2,500</span>
                                     </div>
                                 </div>
 
                                 <div class="space-y-1">
-                                    <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                                    <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                         Target Pop. Base
-                                        <span class="text-purple-400 font-mono font-bold" id="pop-val">3.4M</span>
+                                        <span class="theme-txt-dynamic font-mono font-bold" id="pop-val">3.4M</span>
                                     </label>
-                                    <input type="range" id="sandbox-pop" min="1.0" max="5.0" step="0.1" value="3.4" oninput="updatePopVal()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500 py-1">
-                                    <div class="flex justify-between text-[9px] text-slate-600 font-mono">
+                                    <input type="range" id="sandbox-pop" min="1.0" max="5.0" step="0.1" value="3.4" oninput="updatePopVal()" class="theme-accent-dynamic w-full h-2 bg-[#FAF7F2]/40 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer py-1">
+                                    <div class="flex justify-between text-[9px] text-slate-400 dark:text-slate-600 font-mono">
                                         <span>1.0M</span>
                                         <span>5.0M</span>
                                     </div>
@@ -274,50 +273,50 @@
 
                             <!-- Dynamic Metrics Output Display -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
-                                <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80" id="cohort-box">
+                                <div class="bg-[#FAF7F2] dark:bg-slate-900/60 p-3.5 rounded-xl border border-[#E5DFD5] dark:border-slate-800/80" id="cohort-box">
                                     <p class="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">Prescriber Cohort Size</p>
-                                    <p class="text-sm sm:text-base font-bold text-white mt-1" id="out-cohort-size">--</p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5 leading-snug" id="out-cohort-pct">--</p>
+                                    <p class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1" id="out-cohort-size">--</p>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug" id="out-cohort-pct">--</p>
                                 </div>
-                                <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80" id="impact-box">
+                                <div class="bg-[#FAF7F2] dark:bg-slate-900/60 p-3.5 rounded-xl border border-[#E5DFD5] dark:border-slate-800/80" id="impact-box">
                                     <p class="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">Gross Annual Impact</p>
-                                    <p class="text-sm sm:text-base font-bold text-purple-400 mt-1" id="out-gross-cost">--</p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5 leading-snug">Annual drug spend</p>
+                                    <p class="text-sm sm:text-base font-bold theme-txt-dynamic mt-1" id="out-gross-cost">--</p>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">Annual drug spend</p>
                                 </div>
                             </div>
 
                             <!-- HTA Visual Graph Representation -->
-                            <div class="bg-slate-900 border border-slate-800/50 p-4 rounded-xl" id="graph-panel">
-                                <div class="flex justify-between items-center text-xs text-slate-400 mb-3 gap-2">
+                            <div class="bg-[#FAF7F2] dark:bg-slate-900 border border-[#E5DFD5] dark:border-slate-800/50 p-4 rounded-xl" id="graph-panel">
+                                <div class="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 mb-3 gap-2">
                                     <span class="font-medium text-[11px] sm:text-xs">System Impact (Gross vs. Post-Savings Net)</span>
-                                    <span class="text-purple-400 font-mono font-bold shrink-0 text-[11px] sm:text-xs" id="out-reduction-pct">-0%</span>
+                                    <span class="theme-txt-dynamic font-mono font-bold shrink-0 text-[11px] sm:text-xs" id="out-reduction-pct">-0%</span>
                                 </div>
                                 
                                 <!-- Mini dynamic bar comparison representation -->
                                 <div class="flex flex-col gap-3 pt-1">
                                     <div>
-                                        <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-500 mb-1">
+                                        <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-400 dark:text-slate-500 mb-1">
                                             <span>Unrestricted Pathway Impact</span>
                                             <span id="graph-broad-val">£4.08 Bn</span>
                                         </div>
-                                        <div class="w-full bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
-                                            <div class="bg-slate-600 h-full transition-all duration-300" id="graph-broad-bar" style="width: 100%"></div>
+                                        <div class="w-full bg-[#FAF7F2]/40 dark:bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
+                                            <div class="bg-slate-400 dark:bg-slate-600 h-full transition-all duration-300" id="graph-broad-bar" style="width: 100%"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-400 mb-1 gap-2">
-                                            <span class="font-semibold text-purple-400 truncate" id="graph-restricted-label">Selected Path Impact</span>
-                                            <span class="font-bold text-purple-400 shrink-0" id="graph-restricted-val">£1.44 Bn</span>
+                                        <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-600 dark:text-slate-400 mb-1 gap-2">
+                                            <span class="font-semibold theme-txt-dynamic truncate" id="graph-restricted-label">Selected Path Impact</span>
+                                            <span class="font-bold theme-txt-dynamic shrink-0" id="graph-restricted-val">£1.44 Bn</span>
                                         </div>
-                                        <div class="w-full bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
-                                            <div class="bg-purple-500 h-full transition-all duration-300" id="graph-restricted-bar" style="width: 35%"></div>
+                                        <div class="w-full bg-[#FAF7F2]/40 dark:bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
+                                            <div class="theme-bg-dynamic h-full transition-all duration-300" id="graph-restricted-bar" style="width: 35%"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- HTA Analytical Insight Box -->
-                            <div class="text-[11px] sm:text-xs border-l-2 border-purple-500 pl-3 py-1 text-slate-400 italic leading-relaxed" id="sandbox-insight">
+                            <div class="text-[11px] sm:text-xs border-l-2 theme-border-l-dynamic pl-3 py-1 text-slate-600 dark:text-slate-400 italic leading-relaxed" id="sandbox-insight">
                                 <!-- Loaded dynamically based on preset choice -->
                             </div>
 
@@ -326,20 +325,20 @@
                     </div>
                 </div>
 
-                <!-- Embedded PDF Frame Card (Aligned perfectly to bottom of Right Column) -->
-                <div class="rounded-2xl border border-slate-800 bg-slate-900/20 p-4 sm:p-5 shadow-xl relative overflow-hidden transition-all duration-300 mt-5 lg:mt-0" id="pdf-viewer-card">
+                <!-- Embedded PDF Frame Card (Collapsible) -->
+                <div class="rounded-2xl border border-[#E5DFD5] dark:border-slate-800 bg-[#EFEAE0]/40 dark:bg-slate-900/20 p-4 sm:p-5 shadow-xl relative overflow-hidden transition-all duration-300 mt-5 lg:mt-0" id="pdf-viewer-card">
                     <div class="flex items-center justify-between mb-0 gap-4">
-                        <button onclick="toggleMethodology()" class="w-full flex items-center justify-between text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 hover:opacity-80 transition-all focus:outline-none text-left">
+                        <button onclick="toggleMethodology()" class="w-full flex items-center justify-between text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 hover:opacity-80 transition-all focus:outline-none text-left">
                             <span class="flex items-center gap-2.5">
-                                <i class="fa-solid fa-file-pdf text-purple-400 text-sm" id="pdf-icon"></i>
+                                <i class="fa-solid fa-file-pdf theme-txt-dynamic text-sm" id="pdf-icon"></i>
                                 <span>Methodology Framework Document</span>
                             </span>
-                            <i class="fa-solid fa-chevron-down transition-transform duration-300 text-slate-500 text-[10px] ml-1 shrink-0" id="pdf-methodology-arrow"></i>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300 text-slate-400 dark:text-slate-500 text-[10px] ml-1 shrink-0" id="pdf-methodology-arrow"></i>
                         </button>
                     </div>
                     
-                    <!-- Clean Iframe Container (Initialized as hidden by default) -->
-                    <div class="hidden mt-4 w-full h-[380px] sm:h-[450px] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 transition-colors duration-300" id="pdf-frame-container">
+                    <!-- Clean Iframe Container (Initially Collapsed) -->
+                    <div class="hidden mt-4 w-full h-[380px] sm:h-[450px] rounded-xl overflow-hidden border border-[#E5DFD5] dark:border-slate-800 bg-[#FAF7F2] dark:bg-slate-950 transition-colors duration-300" id="pdf-frame-container">
                         <iframe 
                             src="hta_case_study_methodology.pdf#toolbar=0&navpanes=0&statusbar=0&messages=0" 
                             class="w-full h-full border-0"
@@ -351,19 +350,19 @@
             </section>
         </div>
 
-        <!-- BOTTOM: FULL-WIDTH ULTIMATE PORTFOLIO REFLECTION NOTE -->
-        <section id="portfolio-note-card" class="no-print border border-purple-500/10 bg-purple-950/5 rounded-2xl p-5 sm:p-8 backdrop-blur relative overflow-hidden w-full transition-all duration-300">
+        <!-- BOTTOM: FULL-WIDTH PORTFOLIO REFLECTION NOTE -->
+        <section id="portfolio-note-card" class="no-print border theme-card-border-dynamic theme-card-bg-dynamic rounded-2xl p-5 sm:p-8 backdrop-blur relative overflow-hidden w-full transition-all duration-300">
             <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 blur-3xl pointer-events-none rounded-full"></div>
             <div class="flex flex-col gap-5">
                 <div class="space-y-3 max-w-full">
-                    <h3 id="portfolio-note-header" class="text-[10px] sm:text-xs font-bold tracking-widest text-purple-400 uppercase flex items-center gap-2">
+                    <h3 id="portfolio-note-header" class="text-[10px] sm:text-xs font-bold tracking-widest theme-txt-dynamic uppercase flex items-center gap-2">
                         <i class="fa-solid fa-graduation-cap"></i> Why did I create this interactive HTA case study?
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-serif">
+                    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-serif">
                         By combining this interactive case study with my ongoing preparation for advanced credentials in Health Economics, I wanted to explore macro-level health system value beyond individual clinical outcomes. This project served as a playground for me to practice translating complex medical evidence into structured, population-level resource optimization models while experimenting with how Generative AI can accelerate visual tool creation. This is very much an evolving learning journey for me, and I warmly welcome any feedback, insights, or advice from experienced professionals in the field!
                     </p>
-                    <div class="pt-4 border-t border-purple-500/10 flex flex-col sm:flex-row justify-end items-end gap-3 w-full">
-                        <span id="portfolio-note-signature" class="text-[10px] sm:text-xs font-mono tracking-wider text-purple-400 bg-purple-500/5 border border-purple-500/10 px-3.5 py-2.5 rounded-lg text-center sm:text-right w-full sm:w-auto whitespace-normal break-words leading-relaxed transition-all duration-300">
+                    <div class="pt-4 border-t border-[#E5DFD5] dark:border-purple-500/10 flex flex-col sm:flex-row justify-end items-end gap-3 w-full">
+                        <span id="portfolio-note-signature" class="text-[10px] sm:text-xs font-mono tracking-wider theme-signature-text-dynamic theme-signature-bg-dynamic border theme-signature-border-dynamic px-3.5 py-2.5 rounded-lg text-center sm:text-right w-full sm:w-auto whitespace-normal break-words leading-relaxed transition-all duration-300">
                             — Dr. Ratnapriya Thakur, a dentist exploring healthcare beyond clinics.
                         </span>
                     </div>
@@ -380,41 +379,56 @@
 
     <!-- SLIDES DATA AND PRESENTATION CORE LOGIC -->
     <script>
-        // Theme config dictionary
+        // Declarative Theme Registry mapping styling values perfectly
         const themes = {
             purple: {
-                primary: 'text-purple-400',
-                bgAccent: 'bg-purple-500',
-                border: 'border-purple-500/20',
-                hudDot: 'bg-purple-400',
-                brandText: 'text-purple-400',
-                activeBtn: 'bg-purple-500 text-slate-950 font-semibold',
-                linkHover: 'hover:text-purple-400'
+                text: ['text-purple-700', 'dark:text-purple-400'],
+                bg: ['bg-purple-600', 'dark:bg-purple-500'],
+                bgLight: ['bg-purple-500/10', 'dark:bg-purple-500/5'],
+                border: ['border-purple-200', 'dark:border-purple-500/20'],
+                borderL: ['border-l-purple-600', 'dark:border-l-purple-500'],
+                accent: ['accent-purple-600', 'dark:accent-purple-500'],
+                cardBg: ['bg-[#EFEAE0]/30', 'dark:bg-purple-950/5'],
+                cardBorder: ['border-[#E5DFD5]', 'dark:border-purple-500/20'],
+                signatureBg: ['bg-purple-500/5', 'dark:bg-purple-500/5'],
+                signatureBorder: ['border-purple-200', 'dark:border-purple-500/10'],
+                signatureText: ['text-purple-700', 'dark:text-purple-400'],
+                activeBtn: 'bg-purple-600 dark:bg-purple-500 text-white dark:text-slate-950 font-semibold'
             },
             indigo: {
-                primary: 'text-indigo-400',
-                bgAccent: 'bg-indigo-500',
-                border: 'border-indigo-500/20',
-                hudDot: 'bg-indigo-400',
-                brandText: 'text-indigo-400',
-                activeBtn: 'bg-indigo-500 text-white font-semibold',
-                linkHover: 'hover:text-indigo-400'
+                text: ['text-indigo-700', 'dark:text-indigo-400'],
+                bg: ['bg-indigo-600', 'dark:bg-indigo-500'],
+                bgLight: ['bg-indigo-500/10', 'dark:bg-indigo-500/5'],
+                border: ['border-indigo-200', 'dark:border-indigo-500/20'],
+                borderL: ['border-l-indigo-600', 'dark:border-l-indigo-500'],
+                accent: ['accent-indigo-600', 'dark:accent-indigo-500'],
+                cardBg: ['bg-[#EFEAE0]/30', 'dark:bg-indigo-950/5'],
+                cardBorder: ['border-[#E5DFD5]', 'dark:border-indigo-500/20'],
+                signatureBg: ['bg-indigo-500/5', 'dark:bg-indigo-500/5'],
+                signatureBorder: ['border-indigo-200', 'dark:border-indigo-500/10'],
+                signatureText: ['text-indigo-700', 'dark:text-indigo-400'],
+                activeBtn: 'bg-indigo-600 dark:bg-indigo-500 text-white dark:text-slate-950 font-semibold'
             },
             emerald: {
-                primary: 'text-emerald-400',
-                bgAccent: 'bg-emerald-500',
-                border: 'border-emerald-500/20',
-                hudDot: 'bg-emerald-400',
-                brandText: 'text-emerald-400',
-                activeBtn: 'bg-emerald-500 text-slate-950 font-semibold',
-                linkHover: 'hover:text-emerald-400'
+                text: ['text-emerald-700', 'dark:text-emerald-400'],
+                bg: ['bg-emerald-600', 'dark:bg-emerald-500'],
+                bgLight: ['bg-emerald-500/10', 'dark:bg-emerald-500/5'],
+                border: ['border-emerald-200', 'dark:border-emerald-500/20'],
+                borderL: ['border-l-emerald-600', 'dark:border-l-emerald-500'],
+                accent: ['accent-emerald-600', 'dark:accent-emerald-500'],
+                cardBg: ['bg-[#EFEAE0]/30', 'dark:bg-emerald-950/5'],
+                cardBorder: ['border-[#E5DFD5]', 'dark:border-emerald-500/20'],
+                signatureBg: ['bg-emerald-500/5', 'dark:bg-emerald-500/5'],
+                signatureBorder: ['border-emerald-200', 'dark:border-emerald-500/10'],
+                signatureText: ['text-emerald-700', 'dark:text-emerald-400'],
+                activeBtn: 'bg-emerald-600 dark:bg-emerald-500 text-white dark:text-slate-950 font-semibold'
             }
         };
 
         let activeTheme = 'purple';
         let lightMode = false;
         let currentSlide = 0;
-        let isTransitioning = false; // Transition lock to avoid animation collisions
+        let isTransitioning = false;
 
         // Custom slide database mapping user content to highly premium layouts with verified academic references
         const slides = [
@@ -464,7 +478,7 @@
                 script: 'On Slide 2, we confront the core health economics bottleneck. In HTA, a drug might theoretically be highly cost-effective under traditional cost-utility ratios—meaning it costs less than thirty-thousand pounds per Quality-Adjusted Life Year gained. But cost-effective does not mean affordable. The massive, immediate budget impact of treating millions of patients simultaneously risks overwhelming system capacity and local health boards.'
             },
             {
-                type: 'resolution',
+                type: 'nice_decision',
                 title: 'How NICE Balanced the Scales',
                 sections: [
                     {
@@ -503,168 +517,71 @@
             }
         ];
 
-        // Apply theme changes to slide frame UI
+        // Dynamic theme management with full-state tracking clearing
         function setTheme(themeName) {
             activeTheme = themeName;
-            
-            // Reset buttons classes
+            const activeConf = themes[themeName];
+
+            // 1. Update selector buttons
             document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.className = "theme-btn px-2 py-1 rounded text-slate-400 hover:text-white transition-all";
+                btn.className = "theme-btn px-2 py-1 rounded text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all";
             });
-            
-            const btn = document.getElementById(`btn-theme-${themeName}`);
-            if (btn) {
-                btn.className = `theme-btn px-2 py-1 rounded transition-all ${themes[themeName].activeBtn}`;
+            const activeBtn = document.getElementById(`btn-theme-${themeName}`);
+            if (activeBtn) {
+                activeBtn.className = `theme-btn px-2 py-1 rounded transition-all ${activeConf.activeBtn}`;
             }
 
-            const colorClass = themes[themeName].primary;
-            const bgClass = themes[themeName].bgAccent;
-            const borderClass = themes[themeName].border;
-
-            const hudDot = document.getElementById('hud-dot');
-            if (hudDot) hudDot.className = `h-2 w-2 rounded-full animate-pulse ${themes[themeName].hudDot}`;
-            
-            const nextBtnMain = document.getElementById('next-btn-main');
-            if (nextBtnMain) nextBtnMain.className = `h-10 w-10 rounded-full border border-slate-800 flex items-center justify-center font-bold transition-all active:scale-95 ${bgClass} text-slate-950 hover:opacity-90`;
-
-            // Update interactive graph values
-            const rBar = document.getElementById('graph-restricted-bar');
-            if (rBar) {
-                rBar.className = `h-full transition-all duration-300 ${bgClass}`;
-            }
-
-            const rValText = document.getElementById('graph-restricted-val');
-            if (rValText) {
-                rValText.className = `font-bold ${colorClass}`;
-            }
-
-            const rLabelText = document.getElementById('graph-restricted-label');
-            if (rLabelText) {
-                rLabelText.className = `font-semibold ${colorClass}`;
-            }
-
-            const refIcon = document.getElementById('references-icon');
-            if (refIcon) {
-                refIcon.className = `fa-solid fa-book-bookmark ${colorClass}`;
-            }
-
-            // Update reference drawer hyperlinks to match active theme
-            const refContent = document.getElementById('references-content');
-            if (refContent) {
-                const links = refContent.querySelectorAll('a');
-                links.forEach(l => {
-                    // Reset class and apply dynamic color hover state
-                    l.className = `hover:underline transition-colors group ${colorClass}`;
+            // 2. Clear out older configurations and apply updated sets to class mappings
+            const updateClasses = (selector, styleKey) => {
+                document.querySelectorAll(selector).forEach(el => {
+                    Object.keys(themes).forEach(t => {
+                        themes[t][styleKey].forEach(cls => el.classList.remove(cls));
+                    });
+                    activeConf[styleKey].forEach(cls => el.classList.add(cls));
                 });
-            }
+            };
 
-            // Update header elements to track default selection
-            const logo = document.getElementById('header-logo-container');
-            const hTag = document.getElementById('header-tag');
-            if (logo && hTag) {
-                logo.className = `h-10 w-10 rounded-lg ${bgClass} flex items-center justify-center text-slate-950 font-bold shadow-lg`;
-                hTag.className = `text-[10px] ${bgClass}/10 ${colorClass} px-2 py-0.5 rounded border ${themes[themeName].border} font-mono`;
-            }
-
-            // Update bottom portfolio reflection note block colors dynamically
-            const noteCardHeader = document.getElementById('portfolio-note-header');
-            if (noteCardHeader) {
-                noteCardHeader.className = `text-[10px] sm:text-xs font-bold tracking-widest ${colorClass} uppercase flex items-center gap-2`;
-            }
-
-            const noteCard = document.getElementById('portfolio-note-card');
-            if (noteCard) {
-                if (lightMode) {
-                    noteCard.className = `no-print border border-${themeName}-500/20 bg-${themeName}-50/50 rounded-2xl p-5 sm:p-8 backdrop-blur relative overflow-hidden w-full transition-all duration-300`;
-                } else {
-                    noteCard.className = `no-print border border-${themeName}-500/10 bg-${themeName}-950/5 rounded-2xl p-5 sm:p-8 backdrop-blur relative overflow-hidden w-full transition-all duration-300`;
-                }
-            }
-
-            const noteSignature = document.getElementById('portfolio-note-signature');
-            if (noteSignature) {
-                if (lightMode) {
-                    noteSignature.className = `text-[10px] sm:text-xs font-mono tracking-wider text-${themeName}-700 bg-${themeName}-500/10 border border-${themeName}-500/20 px-3.5 py-2.5 rounded-lg text-center sm:text-right w-full sm:w-auto whitespace-normal break-words leading-relaxed transition-all duration-300`;
-                } else {
-                    noteSignature.className = `text-[10px] sm:text-xs font-mono tracking-wider text-${themeName}-400 bg-${themeName}-500/5 border border-${themeName}-500/10 px-3.5 py-2.5 rounded-lg text-center sm:text-right w-full sm:w-auto whitespace-normal break-words leading-relaxed transition-all duration-300`;
-                }
-            }
-
-            // Update interactive sandbox container colors dynamically
-            const sandboxCard = document.getElementById('sandbox-card');
-            if (sandboxCard) {
-                if (lightMode) {
-                    sandboxCard.className = `rounded-2xl border border-${themeName}-500/30 bg-${themeName}-50/50 p-4 sm:p-6 backdrop-blur shadow-xl relative overflow-hidden`;
-                } else {
-                    sandboxCard.className = `rounded-2xl border border-${themeName}-500/20 bg-${themeName}-950/5 p-4 sm:p-6 backdrop-blur shadow-xl relative overflow-hidden`;
-                }
-            }
+            updateClasses('.theme-txt-dynamic', 'text');
+            updateClasses('.theme-bg-dynamic', 'bg');
+            updateClasses('.theme-border-l-dynamic', 'borderL');
+            updateClasses('.theme-accent-dynamic', 'accent');
+            updateClasses('.theme-card-bg-dynamic', 'cardBg');
+            updateClasses('.theme-card-border-dynamic', 'cardBorder');
+            updateClasses('.theme-signature-bg-dynamic', 'signatureBg');
+            updateClasses('.theme-signature-border-dynamic', 'signatureBorder');
+            updateClasses('.theme-signature-text-dynamic', 'signatureText');
+            updateClasses('.theme-header-tag-bg', 'bgLight');
+            updateClasses('.theme-header-tag-border', 'border');
 
             renderCurrentSlideContent();
             updateBudgetGraphics();
         }
 
-        // Handle light mode logic for high-end clinical aesthetic
+        // Toggle Clinical Light Mode with seamless Native Tailwind Class Mapping
         function toggleLightMode() {
             lightMode = !lightMode;
             const html = document.documentElement;
             const toggleIcon = document.getElementById('theme-toggle-icon');
-            const sandboxCard = document.getElementById('sandbox-card');
-            const noteCard = document.getElementById('portfolio-note-card');
-            const cohortBox = document.getElementById('cohort-box');
-            const impactBox = document.getElementById('impact-box');
-            const graphPanel = document.getElementById('graph-panel');
-            const pdfViewerCard = document.getElementById('pdf-viewer-card');
-            const pdfFrameContainer = document.getElementById('pdf-frame-container');
 
             if (lightMode) {
-                html.classList.add('light');
-                document.body.className = "bg-slate-50 text-slate-900 min-h-screen transition-all duration-300 font-sans custom-scrollbar overflow-x-hidden";
+                html.classList.remove('dark');
                 toggleIcon.className = "fa-solid fa-sun";
-                
-                // Header style update
-                document.querySelector('header').className = "no-print border-b border-slate-200 bg-white/80 backdrop-blur sticky top-0 z-50 transition-colors duration-300";
-                
-                // Adjust slide deck frame background
-                document.getElementById('slide-container').className = "relative w-full min-h-[420px] sm:min-h-[460px] md:aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-2xl flex flex-col justify-between p-5 sm:p-10 select-none group";
-                
-                // Update Sandbox card and panel styles for light mode
-                if (cohortBox) cohortBox.className = "bg-slate-100 p-3.5 rounded-xl border border-slate-200";
-                if (impactBox) impactBox.className = "bg-slate-100 p-3.5 rounded-xl border border-slate-200";
-                if (graphPanel) graphPanel.className = "bg-slate-100 border border-slate-200 p-4 rounded-xl";
-                
-                // Update PDF Embed block styles for light mode
-                if (pdfViewerCard) pdfViewerCard.className = "rounded-2xl border border-slate-200 bg-slate-100/50 p-4 sm:p-5 shadow-xl relative overflow-hidden transition-all duration-300";
-                if (pdfFrameContainer) pdfFrameContainer.className = "w-full h-[380px] sm:h-[450px] rounded-xl overflow-hidden border border-slate-200 bg-white transition-colors duration-300";
             } else {
-                html.classList.remove('light');
-                document.body.className = "bg-slate-950 text-slate-100 min-h-screen transition-all duration-300 font-sans custom-scrollbar overflow-x-hidden";
+                html.classList.add('dark');
                 toggleIcon.className = "fa-solid fa-moon";
-                
-                document.querySelector('header').className = "no-print border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50 transition-colors duration-300";
-                
-                document.getElementById('slide-container').className = "relative w-full min-h-[420px] sm:min-h-[460px] md:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800/80 shadow-2xl flex flex-col justify-between p-5 sm:p-10 select-none group";
-                
-                if (cohortBox) cohortBox.className = "bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80";
-                if (impactBox) impactBox.className = "bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80";
-                if (graphPanel) graphPanel.className = "bg-slate-900 border border-slate-800/50 p-4 rounded-xl";
-                
-                // Update PDF Embed block styles for dark mode
-                if (pdfViewerCard) pdfViewerCard.className = "rounded-2xl border border-slate-800 bg-slate-900/20 p-4 sm:p-5 backdrop-blur shadow-xl relative overflow-hidden transition-all duration-300";
-                if (pdfFrameContainer) pdfFrameContainer.className = "w-full h-[380px] sm:h-[450px] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 transition-colors duration-300";
             }
             setTheme(activeTheme);
         }
 
-        // Render slide content
+        // Render slide content fluidly with adaptive themes
         function renderCurrentSlideContent() {
             const container = document.getElementById('slide-content');
             if (!container) return;
             const slide = slides[currentSlide];
-            const colorClass = themes[activeTheme].primary;
+            
             const fontHeadline = lightMode ? 'text-slate-900' : 'text-white';
             const fontSub = lightMode ? 'text-slate-600' : 'text-slate-300';
-            const fontBorder = lightMode ? 'border-slate-200' : 'border-slate-800/80';
+            const fontBorder = lightMode ? 'border-[#E5DFD5]' : 'border-slate-800/80';
 
             const indicator = document.getElementById('slide-index-indicator');
             if (indicator) {
@@ -676,15 +593,25 @@
             if (dotsContainer) {
                 dotsContainer.innerHTML = '';
                 slides.forEach((_, idx) => {
-                    const activeDotClass = idx === currentSlide 
-                        ? themes[activeTheme].bgAccent 
-                        : (lightMode ? 'bg-slate-300 hover:bg-slate-400' : 'bg-slate-800 hover:bg-slate-700');
+                    let activeDotClass = 'bg-slate-800 hover:bg-slate-700';
+                    if (idx === currentSlide) {
+                        activeDotClass = activeTheme === 'purple' ? 'bg-purple-600 dark:bg-purple-500' 
+                                         : activeTheme === 'indigo' ? 'bg-indigo-600 dark:bg-indigo-500' 
+                                         : 'bg-emerald-600 dark:bg-emerald-500';
+                    } else if (lightMode) {
+                        activeDotClass = 'bg-[#DCD5C9] hover:bg-[#C8BFB0]';
+                    }
                     
                     dotsContainer.innerHTML += `
                         <button onclick="goToSlide(${idx})" class="h-2 w-5 sm:w-6 rounded-full transition-all duration-300 ${activeDotClass}" title="Go to slide ${idx + 1}"></button>
                     `;
                 });
             }
+
+            // Determine active theme colors for slide highlighting
+            const dynamicColorClass = activeTheme === 'purple' ? (lightMode ? 'text-purple-700' : 'text-purple-400')
+                                     : activeTheme === 'indigo' ? (lightMode ? 'text-indigo-700' : 'text-indigo-400')
+                                     : (lightMode ? 'text-emerald-700' : 'text-emerald-400');
 
             if (slide.type === 'title') {
                 container.innerHTML = `
@@ -693,7 +620,7 @@
                         <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight ${fontHeadline} font-serif leading-tight">
                             ${slide.title}
                         </h2>
-                        <h3 class="text-sm sm:text-base md:text-lg lg:text-xl font-medium ${colorClass} italic font-serif">
+                        <h3 class="text-sm sm:text-base md:text-lg lg:text-xl font-medium ${dynamicColorClass} italic font-serif">
                             ${slide.subtitle}
                         </h3>
                         <p class="text-[11px] sm:text-xs md:text-sm ${fontSub} max-w-xl leading-relaxed mt-1">
@@ -704,10 +631,10 @@
             } else {
                 let sectionsHtml = '';
                 slide.sections.forEach(sec => {
-                    const parsedText = sec.text.replace('<strong class="text-theme-clr">', `<strong class="font-bold ${colorClass}">`);
+                    const parsedText = sec.text.replace('<strong class="text-theme-clr">', `<strong class="font-bold ${dynamicColorClass}">`);
                     sectionsHtml += `
                         <div class="flex flex-col gap-1">
-                            <span class="text-[9px] sm:text-[10px] font-bold font-mono tracking-wider ${colorClass} uppercase leading-none">${sec.label}</span>
+                            <span class="text-[9px] sm:text-[10px] font-bold font-mono tracking-wider ${dynamicColorClass} uppercase leading-none">${sec.label}</span>
                             <p class="text-[11px] sm:text-xs md:text-sm ${fontSub} leading-relaxed">
                                 ${parsedText}
                             </p>
@@ -715,7 +642,6 @@
                     `;
                 });
 
-                // Uses tighter margins on mobile to ensure perfect visibility without any layout clipping
                 container.innerHTML = `
                     <div class="flex flex-col gap-3 md:gap-4">
                         <h2 class="text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight ${fontHeadline} border-b ${fontBorder} pb-2 font-serif">
@@ -737,33 +663,28 @@
             const container = document.getElementById('slide-content');
             if (!container) return;
 
-            // Define physical screen offset directions
             const exitClass = direction === 'next' ? '-translate-x-12' : 'translate-x-12';
             const entryClass = direction === 'next' ? 'translate-x-12' : '-translate-x-12';
 
-            // Phase 1: Slide Out (Move element in exit direction and fade opacity)
             container.classList.add('opacity-0', exitClass);
             container.classList.remove('opacity-100', 'translate-x-0');
 
             setTimeout(() => {
-                // Phase 2: Update slide index & load content silently
                 currentSlide = newIndex;
                 renderCurrentSlideContent();
 
-                // Teleport slide container off-screen to the opposite entry side
                 container.classList.remove(exitClass);
                 container.classList.add(entryClass);
 
                 // Force layout engine reflow to apply transformations instantaneously
                 container.offsetHeight;
 
-                // Phase 3: Slide In (Transition towards center stage and restore opacity)
-                container.classList.remove(entryClass, 'opacity-0'); // Safely cleans opacity-0 so mobile devices never hide texts!
+                container.classList.remove(entryClass, 'opacity-0');
                 container.classList.add('opacity-100', 'translate-x-0');
 
                 setTimeout(() => {
                     isTransitioning = false;
-                }, 350); // Matches transition duration
+                }, 350); 
             }, 350);
         }
 
@@ -787,12 +708,18 @@
         function toggleReferences() {
             const content = document.getElementById('references-content');
             const arrow = document.getElementById('references-arrow');
+            const column = document.getElementById('left-column-container');
+
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
                 arrow.classList.add('rotate-180');
+                column.classList.remove('justify-start');
+                column.classList.add('justify-between');
             } else {
                 content.classList.add('hidden');
                 arrow.classList.remove('rotate-180');
+                column.classList.remove('justify-between');
+                column.classList.add('justify-start');
             }
         }
 
@@ -805,13 +732,11 @@
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
                 arrow.classList.add('rotate-180');
-                // When open, stretch columns on desktop to line up bottom margins
                 column.classList.remove('justify-start');
                 column.classList.add('justify-between');
             } else {
                 content.classList.add('hidden');
                 arrow.classList.remove('rotate-180');
-                // When collapsed, pull card up directly underneath the calculator card
                 column.classList.remove('justify-between');
                 column.classList.add('justify-start');
             }
@@ -833,10 +758,10 @@
 
         function handleSwipeGesture() {
             if (touchStartX - touchEndX > 50) {
-                nextSlide(); // Dragged left -> show next
+                nextSlide(); 
             }
             if (touchEndX - touchStartX > 50) {
-                prevSlide(); // Dragged right -> show prev
+                prevSlide(); 
             }
         }
 
@@ -874,7 +799,6 @@
             let insightText = "";
             let savingsPercentage = 0;
 
-            // Health Economics parameters derived from standard guidelines
             if (cohortType === 'broad') {
                 cohortSize = rawPopBase; 
                 cohortPct = "100% of target obesity cohort";
@@ -894,7 +818,6 @@
 
             // Calculations
             const grossAnnualCost = cohortSize * annualCost;
-            const savingsValue = (rawPopBase * annualCost) - grossAnnualCost;
 
             // Render Output values
             const outCohortSize = document.getElementById('out-cohort-size');
@@ -918,7 +841,6 @@
 
         // Handle interactive graphic visual rendering
         function updateBudgetGraphics(rawPopBase, annualCost, grossAnnualCost) {
-            // Retrieve values safely
             const popInput = rawPopBase || (parseFloat(document.getElementById('sandbox-pop').value) * 1000000);
             const costInput = annualCost || parseFloat(document.getElementById('sandbox-cost').value);
             const currentGross = grossAnnualCost || (popInput * costInput);
@@ -927,7 +849,6 @@
             const ratio = (currentGross / maximumGross) * 100;
 
             const broadValText = document.getElementById('graph-broad-val');
-            const textClass = themes[activeTheme].primary;
             const restrictedValText = document.getElementById('graph-restricted-val');
 
             if (broadValText && restrictedValText) {
