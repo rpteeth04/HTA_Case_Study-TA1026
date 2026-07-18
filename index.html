@@ -90,63 +90,65 @@
     <!-- MAIN INTERACTIVE CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col gap-6 sm:gap-8">
         
-        <!-- Two Column Interactive Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start w-full">
+        <!-- Two Column Interactive Grid (Stretched on desktop to end bottom sections in perfect alignment) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch w-full">
             
-            <!-- LEFT: SLIDE PRESENTATION (7 cols) -->
-            <section class="lg:col-span-7 flex flex-col gap-5 w-full overflow-hidden">
+            <!-- LEFT: SLIDE PRESENTATION & SCIENTIFIC LITERATURE -->
+            <section class="lg:col-span-7 flex flex-col justify-between lg:h-full w-full overflow-hidden">
                 
-                <!-- Slide Deck Frame -->
-                <div class="relative w-full min-h-[420px] sm:min-h-[460px] md:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800/80 shadow-2xl flex flex-col justify-between p-5 sm:p-10 select-none group" id="slide-container">
-                    
-                    <!-- Background decorative elements based on active theme -->
-                    <div class="absolute inset-0 pointer-events-none opacity-20 transition-all duration-500" id="slide-bg">
-                        <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-purple-500 blur-3xl filter -translate-y-12 translate-x-12"></div>
-                        <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-slate-800 blur-3xl filter translate-y-12 -translate-x-12"></div>
+                <div class="flex flex-col gap-5">
+                    <!-- Slide Deck Frame -->
+                    <div class="relative w-full min-h-[420px] sm:min-h-[460px] md:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800/80 shadow-2xl flex flex-col justify-between p-5 sm:p-10 select-none group" id="slide-container">
+                        
+                        <!-- Background decorative elements based on active theme -->
+                        <div class="absolute inset-0 pointer-events-none opacity-20 transition-all duration-500" id="slide-bg">
+                            <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-purple-500 blur-3xl filter -translate-y-12 translate-x-12"></div>
+                            <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-slate-800 blur-3xl filter translate-y-12 -translate-x-12"></div>
+                        </div>
+
+                        <!-- TOP DECK HUD -->
+                        <div class="relative z-10 flex items-center justify-between border-b border-slate-800/50 pb-3 text-[10px] sm:text-xs font-semibold tracking-widest text-slate-400 uppercase">
+                            <span class="flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-purple-400 animate-pulse" id="hud-dot"></span>
+                                NICE Technology Appraisal: TA1026
+                            </span>
+                            <span id="slide-index-indicator">01 / 05</span>
+                        </div>
+
+                        <!-- SLIDE MAIN CONTENT -->
+                        <div class="relative z-10 my-auto flex flex-col justify-center py-4 sm:py-6 overflow-y-auto max-h-[85%] custom-scrollbar slide-transition opacity-100 transform translate-x-0" id="slide-content">
+                            <!-- Loaded dynamically via JavaScript -->
+                        </div>
+
+                        <!-- BOTTOM DECK HUD & CONTROLS -->
+                        <div class="relative z-10 flex items-center justify-end border-t border-slate-800/50 pt-3 text-xs">
+                            <!-- Slide Navigation Controls -->
+                            <div class="flex items-center gap-3 no-print">
+                                <button onclick="prevSlide()" class="h-10 w-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all active:scale-95" title="Previous Slide">
+                                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                                </button>
+                                <button onclick="nextSlide()" class="h-10 w-10 rounded-full border border-slate-800 bg-purple-500 hover:bg-purple-400 flex items-center justify-center text-slate-950 font-bold transition-all active:scale-95" title="Next Slide" id="next-btn-main">
+                                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- TOP DECK HUD -->
-                    <div class="relative z-10 flex items-center justify-between border-b border-slate-800/50 pb-3 text-[10px] sm:text-xs font-semibold tracking-widest text-slate-400 uppercase">
-                        <span class="flex items-center gap-2">
-                            <span class="h-2 w-2 rounded-full bg-purple-400 animate-pulse" id="hud-dot"></span>
-                            NICE Technology Appraisal: TA1026
+                    <!-- Slide Selection Progress Line -->
+                    <div class="no-print flex flex-col sm:flex-row items-center justify-between gap-3 px-2 text-xs text-slate-500">
+                        <span class="font-medium flex items-center gap-2">
+                            <i class="fa-solid fa-keyboard text-[10px] hidden sm:inline"></i> 
+                            Use keyboard arrows to navigate or swipe left/right
                         </span>
-                        <span id="slide-index-indicator">01 / 05</span>
-                    </div>
-
-                    <!-- SLIDE MAIN CONTENT (Dynamically populated with hardware transition transformations) -->
-                    <div class="relative z-10 my-auto flex flex-col justify-center py-4 sm:py-6 overflow-y-auto max-h-[85%] custom-scrollbar slide-transition opacity-100 transform translate-x-0" id="slide-content">
-                        <!-- Loaded dynamically via JavaScript -->
-                    </div>
-
-                    <!-- BOTTOM DECK HUD & CONTROLS -->
-                    <div class="relative z-10 flex items-center justify-end border-t border-slate-800/50 pt-3 text-xs">
-                        <!-- Slide Navigation Controls -->
-                        <div class="flex items-center gap-3 no-print">
-                            <button onclick="prevSlide()" class="h-10 w-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all active:scale-95" title="Previous Slide">
-                                <i class="fa-solid fa-chevron-left text-sm"></i>
-                            </button>
-                            <button onclick="nextSlide()" class="h-10 w-10 rounded-full border border-slate-800 bg-purple-500 hover:bg-purple-400 flex items-center justify-center text-slate-950 font-bold transition-all active:scale-95" title="Next Slide" id="next-btn-main">
-                                <i class="fa-solid fa-chevron-right text-sm"></i>
-                            </button>
+                        <div class="flex flex-wrap gap-1.5 justify-center" id="slide-dots">
+                            <!-- Generated via JS -->
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Slide Selection Progress Line -->
-                <div class="no-print flex flex-col sm:flex-row items-center justify-between gap-3 px-2 text-xs text-slate-500">
-                    <span class="font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-keyboard text-[10px] hidden sm:inline"></i> 
-                        Use keyboard arrows to navigate or swipe left/right
-                    </span>
-                    <div class="flex flex-wrap gap-1.5 justify-center" id="slide-dots">
-                        <!-- Generated via JS -->
-                    </div>
-                </div>
-
-                <!-- EXPANDABLE LITERATURE REFERENCES DRAWER -->
-                <div class="no-print rounded-2xl border border-slate-800/80 bg-slate-900/20 p-4 sm:p-5 backdrop-blur">
+                <!-- EXPANDABLE LITERATURE REFERENCES DRAWER (Aligned perfectly to bottom of Left Column) -->
+                <div class="no-print rounded-2xl border border-slate-800/80 bg-slate-900/20 p-4 sm:p-5 backdrop-blur mt-5 lg:mt-0">
                     <button onclick="toggleReferences()" class="w-full flex items-center justify-between text-xs font-bold tracking-wider text-slate-400 uppercase">
                         <span class="flex items-center gap-2">
                             <i class="fa-solid fa-book-bookmark text-purple-400" id="references-icon"></i> Scientific Literature & Evidence Base
@@ -173,7 +175,7 @@
                                 <span class="text-[9px] text-slate-500 font-mono shrink-0">TA1026</span>
                             </div>
                             <p class="text-xs text-slate-300 leading-relaxed font-serif">
-                                <a href="https://www.nice.org.uk/guidance/ta1026" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors group">
+                                <a href="https://www.ncbi.nlm.nih.gov/books/NBK611612/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors group">
                                     National Institute for Health and Care Excellence (NICE). <strong>Tirzepatide for managing overweight and obesity</strong>. Technology Appraisal Guidance [TA1026]. Published June 2024.
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 opacity-60 group-hover:opacity-100 transition-opacity"></i>
                                 </a>
@@ -210,119 +212,121 @@
 
             </section>
 
-            <!-- RIGHT: INTERACTIVE HTA BUDGET SANDBOX & PDF EMBED (5 cols) -->
-            <section class="lg:col-span-5 flex flex-col gap-5 no-print w-full">
+            <!-- RIGHT: INTERACTIVE HTA BUDGET SANDBOX & METHODOLOGY -->
+            <section class="lg:col-span-5 flex flex-col justify-between lg:h-full no-print w-full">
                 
-                <!-- HTA Sandbox Card -->
-                <div class="rounded-2xl border border-purple-500/20 bg-purple-950/5 p-4 sm:p-6 backdrop-blur shadow-xl relative overflow-hidden" id="sandbox-card">
-                    
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 blur-2xl pointer-events-none rounded-full"></div>
-                    
-                    <div class="flex items-center gap-3 mb-4 border-b border-slate-800/80 pb-4">
-                        <div class="h-10 w-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0" id="sandbox-logo">
-                            <i class="fa-solid fa-calculator text-base"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-xs sm:text-sm font-bold tracking-tight text-white uppercase">HTA Budget Impact Simulator</h2>
-                            <p class="text-[10px] sm:text-xs text-slate-400 font-medium">Model macroeconomic access scenarios</p>
-                        </div>
-                    </div>
-
-                    <!-- Simulation Interactive Fields -->
-                    <div class="flex flex-col gap-5 text-sm">
+                <div class="flex flex-col gap-5">
+                    <!-- HTA Sandbox Card -->
+                    <div class="rounded-2xl border border-purple-500/20 bg-purple-950/5 p-4 sm:p-6 backdrop-blur shadow-xl relative overflow-hidden" id="sandbox-card">
                         
-                        <!-- Cohort Selection Preset -->
-                        <div>
-                            <label class="block text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Select Eligibility Criteria Preset</label>
-                            <select id="sandbox-cohort" onchange="runSimulation()" class="w-full bg-slate-900 border border-slate-800 text-slate-200 rounded-lg px-3 py-2.5 text-xs focus:ring-1 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all">
-                                <option value="broad" selected>Standard Marketing Authorisation (BMI ≥30 + 1 comorbidity)</option>
-                                <option value="nice">NICE Restricted Guidance (BMI ≥35 + 1 comorbidity)</option>
-                                <option value="nhse_y1">NHS England Year 1 Phase (BMI ≥40 + 4 comorbidities)</option>
-                            </select>
-                        </div>
-
-                        <!-- Variable sliders -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4">
-                            <div class="space-y-1">
-                                <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                                    Annual Drug Cost 
-                                    <span class="text-purple-400 font-mono font-bold" id="cost-val">£1,200</span>
-                                </label>
-                                <input type="range" id="sandbox-cost" min="500" max="2500" step="50" value="1200" oninput="updateCostVal()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500 py-1">
-                                <div class="flex justify-between text-[9px] text-slate-600 font-mono">
-                                    <span>£500</span>
-                                    <span>£2,500</span>
-                                </div>
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 blur-2xl pointer-events-none rounded-full"></div>
+                        
+                        <div class="flex items-center gap-3 mb-4 border-b border-slate-800/80 pb-4">
+                            <div class="h-10 w-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0" id="sandbox-logo">
+                                <i class="fa-solid fa-calculator text-base"></i>
                             </div>
-
-                            <div class="space-y-1">
-                                <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                                    Target Pop. Base
-                                    <span class="text-purple-400 font-mono font-bold" id="pop-val">3.4M</span>
-                                </label>
-                                <input type="range" id="sandbox-pop" min="1.0" max="5.0" step="0.1" value="3.4" oninput="updatePopVal()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500 py-1">
-                                <div class="flex justify-between text-[9px] text-slate-600 font-mono">
-                                    <span>1.0M</span>
-                                    <span>5.0M</span>
-                                </div>
+                            <div>
+                                <h2 class="text-xs sm:text-sm font-bold tracking-tight text-white uppercase">HTA Budget Impact Simulator</h2>
+                                <p class="text-[10px] sm:text-xs text-slate-400 font-medium">Model macroeconomic access scenarios</p>
                             </div>
                         </div>
 
-                        <!-- Dynamic Metrics Output Display -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
-                            <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80" id="cohort-box">
-                                <p class="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">Prescriber Cohort Size</p>
-                                <p class="text-sm sm:text-base font-bold text-white mt-1" id="out-cohort-size">--</p>
-                                <p class="text-[10px] text-slate-400 mt-0.5 leading-snug" id="out-cohort-pct">--</p>
-                            </div>
-                            <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80" id="impact-box">
-                                <p class="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">Gross Annual Impact</p>
-                                <p class="text-sm sm:text-base font-bold text-purple-400 mt-1" id="out-gross-cost">--</p>
-                                <p class="text-[10px] text-slate-400 mt-0.5 leading-snug">Annual drug spend</p>
-                            </div>
-                        </div>
-
-                        <!-- HTA Visual Graph Representation -->
-                        <div class="bg-slate-900 border border-slate-800/50 p-4 rounded-xl" id="graph-panel">
-                            <div class="flex justify-between items-center text-xs text-slate-400 mb-3 gap-2">
-                                <span class="font-medium text-[11px] sm:text-xs">System Impact (Gross vs. Post-Savings Net)</span>
-                                <span class="text-purple-400 font-mono font-bold shrink-0 text-[11px] sm:text-xs" id="out-reduction-pct">-0%</span>
-                            </div>
+                        <!-- Simulation Interactive Fields -->
+                        <div class="flex flex-col gap-5 text-sm">
                             
-                            <!-- Mini dynamic bar comparison representation -->
-                            <div class="flex flex-col gap-3 pt-1">
-                                <div>
-                                    <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-500 mb-1">
-                                        <span>Unrestricted Pathway Impact</span>
-                                        <span id="graph-broad-val">£4.08 Bn</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
-                                        <div class="bg-slate-600 h-full transition-all duration-300" id="graph-broad-bar" style="width: 100%"></div>
+                            <!-- Cohort Selection Preset -->
+                            <div>
+                                <label class="block text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Select Eligibility Criteria Preset</label>
+                                <select id="sandbox-cohort" onchange="runSimulation()" class="w-full bg-slate-900 border border-slate-800 text-slate-200 rounded-lg px-3 py-2.5 text-xs focus:ring-1 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all">
+                                    <option value="broad" selected>Standard Marketing Authorisation (BMI ≥30 + 1 comorbidity)</option>
+                                    <option value="nice">NICE Restricted Guidance (BMI ≥35 + 1 comorbidity)</option>
+                                    <option value="nhse_y1">NHS England Year 1 Phase (BMI ≥40 + 4 comorbidities)</option>
+                                </select>
+                            </div>
+
+                            <!-- Variable sliders -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4">
+                                <div class="space-y-1">
+                                    <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                                        Annual Drug Cost 
+                                        <span class="text-purple-400 font-mono font-bold" id="cost-val">£1,200</span>
+                                    </label>
+                                    <input type="range" id="sandbox-cost" min="500" max="2500" step="50" value="1200" oninput="updateCostVal()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500 py-1">
+                                    <div class="flex justify-between text-[9px] text-slate-600 font-mono">
+                                        <span>£500</span>
+                                        <span>£2,500</span>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-400 mb-1 gap-2">
-                                        <span class="font-semibold text-purple-400 truncate" id="graph-restricted-label">Selected Path Impact</span>
-                                        <span class="font-bold text-purple-400 shrink-0" id="graph-restricted-val">£1.44 Bn</span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
-                                        <div class="bg-purple-500 h-full transition-all duration-300" id="graph-restricted-bar" style="width: 35%"></div>
+
+                                <div class="space-y-1">
+                                    <label class="flex justify-between text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                                        Target Pop. Base
+                                        <span class="text-purple-400 font-mono font-bold" id="pop-val">3.4M</span>
+                                    </label>
+                                    <input type="range" id="sandbox-pop" min="1.0" max="5.0" step="0.1" value="3.4" oninput="updatePopVal()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500 py-1">
+                                    <div class="flex justify-between text-[9px] text-slate-600 font-mono">
+                                        <span>1.0M</span>
+                                        <span>5.0M</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- HTA Analytical Insight Box -->
-                        <div class="text-[11px] sm:text-xs border-l-2 border-purple-500 pl-3 py-1 text-slate-400 italic leading-relaxed" id="sandbox-insight">
-                            <!-- Loaded dynamically based on preset choice -->
+                            <!-- Dynamic Metrics Output Display -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
+                                <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80" id="cohort-box">
+                                    <p class="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">Prescriber Cohort Size</p>
+                                    <p class="text-sm sm:text-base font-bold text-white mt-1" id="out-cohort-size">--</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5 leading-snug" id="out-cohort-pct">--</p>
+                                </div>
+                                <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80" id="impact-box">
+                                    <p class="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">Gross Annual Impact</p>
+                                    <p class="text-sm sm:text-base font-bold text-purple-400 mt-1" id="out-gross-cost">--</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5 leading-snug">Annual drug spend</p>
+                                </div>
+                            </div>
+
+                            <!-- HTA Visual Graph Representation -->
+                            <div class="bg-slate-900 border border-slate-800/50 p-4 rounded-xl" id="graph-panel">
+                                <div class="flex justify-between items-center text-xs text-slate-400 mb-3 gap-2">
+                                    <span class="font-medium text-[11px] sm:text-xs">System Impact (Gross vs. Post-Savings Net)</span>
+                                    <span class="text-purple-400 font-mono font-bold shrink-0 text-[11px] sm:text-xs" id="out-reduction-pct">-0%</span>
+                                </div>
+                                
+                                <!-- Mini dynamic bar comparison representation -->
+                                <div class="flex flex-col gap-3 pt-1">
+                                    <div>
+                                        <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-500 mb-1">
+                                            <span>Unrestricted Pathway Impact</span>
+                                            <span id="graph-broad-val">£4.08 Bn</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
+                                            <div class="bg-slate-600 h-full transition-all duration-300" id="graph-broad-bar" style="width: 100%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-[9px] sm:text-[10px] text-slate-400 mb-1 gap-2">
+                                            <span class="font-semibold text-purple-400 truncate" id="graph-restricted-label">Selected Path Impact</span>
+                                            <span class="font-bold text-purple-400 shrink-0" id="graph-restricted-val">£1.44 Bn</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 h-2 sm:h-2.5 rounded-full overflow-hidden">
+                                            <div class="bg-purple-500 h-full transition-all duration-300" id="graph-restricted-bar" style="width: 35%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- HTA Analytical Insight Box -->
+                            <div class="text-[11px] sm:text-xs border-l-2 border-purple-500 pl-3 py-1 text-slate-400 italic leading-relaxed" id="sandbox-insight">
+                                <!-- Loaded dynamically based on preset choice -->
+                            </div>
+
                         </div>
 
                     </div>
-
                 </div>
 
-                <!-- Embedded PDF Frame Card (COLLAPSIBLE BY DEFAULT) -->
-                <div class="rounded-2xl border border-slate-800 bg-slate-900/20 p-4 sm:p-5 shadow-xl relative overflow-hidden transition-all duration-300" id="pdf-viewer-card">
+                <!-- Embedded PDF Frame Card (Aligned perfectly to bottom of Right Column) -->
+                <div class="rounded-2xl border border-slate-800 bg-slate-900/20 p-4 sm:p-5 shadow-xl relative overflow-hidden transition-all duration-300 mt-5 lg:mt-0" id="pdf-viewer-card">
                     <div class="flex items-center justify-between mb-0 gap-4">
                         <button onclick="toggleMethodology()" class="w-full flex items-center justify-between text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 hover:opacity-80 transition-all focus:outline-none text-left">
                             <span class="flex items-center gap-2.5">
@@ -651,7 +655,7 @@
             setTheme(activeTheme);
         }
 
-        // Render slide content (Pure function to swap text, bypasses animation trigger)
+        // Render slide content
         function renderCurrentSlideContent() {
             const container = document.getElementById('slide-content');
             if (!container) return;
